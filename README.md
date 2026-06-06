@@ -8,7 +8,7 @@ A collection of hands-on networking labs built in Cisco Packet Tracer, following
 
 | # | Lab | Topics | Status |
 |---|-----|--------|--------|
-| 01 | [Basic Network Design — VLANs & Inter-VLAN Routing](https://github.com/s1ayersboxer/CCNA-Projects/tree/main/Network%20Design) | Subnetting, VLANs, Trunking, DTP, VTP, Router-on-a-Stick | ✅ Complete |
+| 01 | [Basic Network Design](https://github.com/s1ayersboxer/CCNA-Projects/tree/main/Network%20Design) | Subnetting, VLANs, Trunking, DTP, VTP, Router-on-a-Stick | ✅ Complete |
 
 ---
 
