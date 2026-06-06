@@ -9,22 +9,6 @@ A hands-on Cisco Packet Tracer lab covering subnetting, VLANs, trunking, DTP, VT
 
 ![Network Topology](images/topology.png)
 
-```
-                        R1 (2911)
-                        G0/0
-                          |
-                        G0/1
-                        SW1 (2960) — VTP Server
-                       /    \
-                   G0/2      F0/1 (VLAN 10) ── PC1
-                     |       F0/2 (VLAN 20) ── PC2
-                   G0/1
-                   SW2 (2960) — VTP Client
-                       \
-                   F0/1 (VLAN 10) ── PC3
-                   F0/2 (VLAN 20) ── PC4
-```
-
 ---
 
 ## Devices
