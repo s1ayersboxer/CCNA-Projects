@@ -1,7 +1,6 @@
-# Packet Tracer Lab — VLAN, Trunking & Inter-VLAN Routing
-### Based on Jeremy's IT Lab (CCNA) — Days 8–18
+# Simple Network Design
 
-A hands-on Cisco Packet Tracer lab covering subnetting, VLANs, trunking, DTP, VTP, and Router-on-a-Stick inter-VLAN routing.
+This project involved basic network topology with 2 VLAN configuratiosn connected to two switches, and a router as a ROAS (or Router on a Stick)
 
 ---
 
