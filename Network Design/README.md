@@ -7,7 +7,7 @@ A hands-on Cisco Packet Tracer lab covering subnetting, VLANs, trunking, DTP, VT
 
 ## Topology
 
-
+![Network Topology](images/topology.png)
 
 ---
 
