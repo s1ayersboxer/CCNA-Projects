@@ -38,7 +38,7 @@ A collection of hands-on networking labs built in Cisco Packet Tracer, following
 
 ## Progress
 
-Currently at **Day 21 — Spanning Tree Protocol** in Jeremy's IT Lab.
+Currently at **Day 31 — OSPF** in Jeremy's IT Lab.
 
 | Topic | Status |
 |-------|--------|
@@ -46,8 +46,8 @@ Currently at **Day 21 — Spanning Tree Protocol** in Jeremy's IT Lab.
 | Subnetting | ✅ Complete |
 | VLANs & Trunking | ✅ Complete |
 | Inter-VLAN Routing | ✅ Complete |
-| Spanning Tree Protocol | 🔄 In Progress |
-| EtherChannel | ⏳ Upcoming |
-| OSPF | ⏳ Upcoming |
+| Spanning Tree Protocol | ✅ Complete |
+| EtherChannel | ✅ Complete |
+| OSPF | 🔄 In Progress |
 | ACLs | ⏳ Upcoming |
 | NAT | ⏳ Upcoming |
