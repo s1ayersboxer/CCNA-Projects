@@ -20,12 +20,12 @@ This project simulates a multi-router enterprise topology with segmented network
 
 Devices Used
 
-DeviceModelQuantityRouterCisco 29113 (R1, R2, R3)SwitchCisco 29602 (SW1, SW2)PCGeneric PC4 (PC1, PC2, PC3, PC4)ServerServer-PT1 (SRV1)
+Device Model Quantity Router Cisco 29113 (R1, R2, R3) Switch Cisco 29602 (SW1, SW2)PC Generic PC4 (PC1, PC2, PC3, PC4) Server Server-PT1 (SRV1)
 
 
-📐 IP Addressing Scheme
+## 📐 IP Addressing Scheme
 
-Subnets
+### Subnets
 
 SubnetNetworkMaskPurposeSubnet 1192.168.1.0/24255.255.255.0SW1 side — VLAN 10Subnet 2192.168.2.0/24255.255.255.0SW2 side — VLAN 20Subnet 3192.168.12.0/30255.255.255.252R1 ↔ R2 linkSubnet 4192.168.23.0/30255.255.255.252R2 ↔ R3 link
 
@@ -36,7 +36,7 @@ DeviceInterfaceIP AddressGatewayR1Gi0/0.10192.168.1.1—R1Gi0/1192.168.12.1—R2
 
 🔧 Configurations
 
-Phase 1 — Physical Topology
+## Phase 1 — Physical Topology
 
 
 Placed 3 routers, 2 switches, 4 PCs, and 1 server
@@ -45,7 +45,7 @@ Verified physical connectivity across all links
 
 
 
-Phase 2 — IP Addressing
+## Phase 2 — IP Addressing
 
 
 Planned subnetting using /24 for LAN segments and /30 for point-to-point router links
@@ -54,13 +54,13 @@ Configured and verified all router interfaces using show ip interface brief
 
 
 
-Phase 3 — VLANs & 802.1Q Trunking
+## Phase 3 — VLANs & 802.1Q Trunking
 
 VLAN Plan
 
 VLANNameDevices10SALESPC1, PC4 (SW1)20ITPC2, PC3, SRV1 (SW2)
 
-SW1 Configuration
+### SW1 Configuration
 
 vlan 10
  name SALES
@@ -78,7 +78,7 @@ interface fastEthernet 0/2
 interface fastEthernet 0/3
  switchport mode trunk
 
-SW2 Configuration
+### SW2 Configuration
 
 vlan 10
  name SALES
@@ -100,16 +100,16 @@ interface fastEthernet 0/4
 interface fastEthernet 0/3
  switchport mode trunk
 
-Verification Commands
+### Verification Commands
 
 show vlan brief
 show interfaces trunk
 show cdp neighbors
 
 
-Phase 4 — Inter-VLAN Routing (Router-on-a-Stick)
+## Phase 4 — Inter-VLAN Routing (Router-on-a-Stick)
 
-R1 Subinterface Configuration
+### R1 Subinterface Configuration
 
 interface gigabitEthernet 0/0
  no ip address
@@ -122,7 +122,7 @@ interface gigabitEthernet 0/1
  ip address 192.168.12.1 255.255.255.252
  no shutdown
 
-R2 Subinterface Configuration
+### R2 Subinterface Configuration
 
 interface gigabitEthernet 0/0
  no ip address
@@ -139,13 +139,13 @@ interface gigabitEthernet 0/2
  ip address 192.168.23.1 255.255.255.252
  no shutdown
 
-Verification
+### Verification
 
 show ip interface brief
 show interfaces gigabitEthernet 0/0.10
 
 
-Phase 5 — Spanning Tree Protocol (STP)
+## Phase 5 — Spanning Tree Protocol (STP)
 
 
 STP runs automatically on all Cisco 2960 switches using IEEE 802.1D
@@ -154,18 +154,18 @@ SW2 elected as Root Bridge for VLAN 20
 Each VLAN runs its own STP instance
 
 
-Verification
+### Verification
 
 show spanning-tree
 
-Key STP Output Fields
+### Key STP Output Fields
 
 FieldMeaningRoot IDMAC of the Root BridgeThis bridge is the rootConfirms this switch is the Root BridgeDesg FWDDesignated port — actively forwarding802.1QEncapsulation standard confirmed
 
 
-Phase 6 — Port Security
+## Phase 6 — Port Security
 
-Configured sticky MAC port security on SW1 Fa0/2 (PC1's port):
+### Configured sticky MAC port security on SW1 Fa0/2 (PC1's port):
 
 interface fastEthernet 0/2
  switchport mode access
@@ -174,17 +174,17 @@ interface fastEthernet 0/2
  switchport port-security mac-address sticky
  switchport port-security violation shutdown
 
-Verification
+### Verification
 
 show port-security interface fastEthernet 0/2
 show mac address-table
 
-Result
+### Result
 
 FieldValuePort StatusSecure-upSticky MAC1 (PC1's MAC locked)Violation ModeShutdown
 
 
-Phase 7 — DHCP & DNS
+## Phase 7 — DHCP & DNS
 
 DHCP — Configured on SRV1
 
@@ -199,11 +199,11 @@ NameTypeAddressserver.localA Record192.168.2.20
 Successfully resolved ping server.local → 192.168.2.20 from PC1 and PC2.
 
 
-Phase 8 — Dynamic Routing Protocols
+## Phase 8 — Dynamic Routing Protocols
 
 Configured and tested all three dynamic routing protocols in sequence:
 
-RIP v2
+### RIP v2
 
 router rip
  version 2
@@ -213,7 +213,7 @@ router rip
 
 Route code: R | Admin Distance: 120
 
-OSPF
+### OSPF
 
 router ospf 1
  network 192.168.1.0 0.0.0.255 area 0
@@ -221,7 +221,7 @@ router ospf 1
 
 Route code: O | Admin Distance: 110
 
-EIGRP (Final — Currently Active)
+### EIGRP (Final — Currently Active)
 
 router eigrp 100
  network 192.168.1.0
@@ -234,35 +234,35 @@ Protocol Comparison
 
 ProtocolCodeAdmin DistanceTypeRIP v2R120Distance VectorOSPFO110Link StateEIGRPD90Hybrid (Cisco)
 
-Verification
+### Verification
 
 show ip route
 show ip protocols
 
 
-Phase 9 — Troubleshooting
+## Phase 9 — Troubleshooting
 
 Commands Used & Results
 
 CommandResultping 192.168.2.50✅ 4/4 replies, TTL=126ping server.local✅ Resolved to 192.168.2.20tracert 192.168.2.50✅ 3 hops: R1 → R2 → PC2show ip route✅ EIGRP routes confirmedshow ip protocols✅ EIGRP AS 100 activeshow interfaces Gi0/1✅ 0 errors, full-duplex
 
-Traceroute Output (PC1 → PC2)
+### Traceroute Output (PC1 → PC2)
 
 1   0ms   192.168.1.1    (R1)
 2   0ms   192.168.12.2   (R2)
 3   1ms   192.168.2.50   (PC2)
 
-OSI Layer Fault Isolation Examples
+### OSI Layer Fault Isolation Examples
 
 IssueLayerFix AppliedTrunk port on wrong interfaceLayer 2Used show cdp neighbors to find correct portIP overlap on subinterfacesLayer 3Removed IP from physical interfaceDNS not resolving on PC1Layer 7Manually added DNS server IP to PC1Static route not appearingLayer 3Removed conflicting connected route first
 
 
-📊 Key Concepts Demonstrated
+## 📊 Key Concepts Demonstrated
 
 ConceptStandard/ProtocolStatusVLAN SegmentationIEEE 802.1Q✅Trunk Links802.1Q✅Inter-VLAN RoutingRouter-on-a-Stick✅Spanning TreeIEEE 802.1D✅Port SecuritySticky MAC✅DHCPRFC 2131✅DNSRFC 1035✅Dynamic RoutingRIP v2, OSPF, EIGRP✅Troubleshootingping, traceroute, show✅
 
 
-🛠️ Tools Used
+## 🛠️ Tools Used
 
 
 Cisco Packet Tracer — Network simulation
@@ -271,7 +271,7 @@ show commands — Verification and troubleshooting
 
 
 
-📁 Repository Structure
+## 📁 Repository Structure
 
 CCNA-Enterprise-Lab/
 │
@@ -285,7 +285,6 @@ CCNA-Enterprise-Lab/
     └── SW2-config.txt
 
 
-👤 Author
+## 👤 Author
 
 Built as part of CCNA study and hands-on lab practice.
-ArtifactsReadmeDocument · MD Content(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.nonce='OpkpWWXfp8rVwelXg0bZJA==';d.innerHTML="window.__CF$cv$params={r:'a0e77ee18b4345c2',t:'MTc4MTkyNDEzNw=='};var a=document.createElement('script');a.nonce='OpkpWWXfp8rVwelXg0bZJA==';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();
