@@ -38,16 +38,17 @@ A collection of hands-on networking labs built in Cisco Packet Tracer, following
 
 ## Progress
 
-Currently at **Day 31 — OSPF** in Jeremy's IT Lab.
+Currently at **Day 32** in Jeremy's IT Lab.
 
-| Topic | Status |
-|-------|--------|
-| Network Fundamentals | ✅ Complete |
-| Subnetting | ✅ Complete |
-| VLANs & Trunking | ✅ Complete |
-| Inter-VLAN Routing | ✅ Complete |
-| Spanning Tree Protocol | ✅ Complete |
-| EtherChannel | ✅ Complete |
-| OSPF | 🔄 In Progress |
-| ACLs | ⏳ Upcoming |
-| NAT | ⏳ Upcoming |
+| Day | Topic | Status |
+|-----|-------|--------|
+| Day 1-11 | Network Fundamentals | ✅ Complete |
+| Day 12-15 | Subnetting | ✅ Complete |
+| Day 16-18 | VLANs & Trunking | ✅ Complete |
+| Day 19-20 | Inter-VLAN Routing | ✅ Complete |
+| Day 21-22 | Spanning Tree Protocol | ✅ Complete |
+| Day 23-25 | EtherChannel | ✅ Complete |
+| Day 26-28 | OSPF | ✅ Complete |
+| Day 29-31 | OSPF Part 2 & IPv4 ACLs | ✅ Complete |
+| Day 32 | IPv6 | 🔄 In Progress |
+| Day 33+ | NAT, DHCP, DNS, Security | ⏳ Upcoming |
