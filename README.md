@@ -8,8 +8,8 @@ A collection of hands-on networking labs built in Cisco Packet Tracer, following
 
 | # | Lab | Topics | Status |
 |---|-----|--------|--------|
-| 01 | [Basic Network Design](https://github.com/s1ayersboxer/CCNA-Projects/tree/main/Network%20Design) | Subnetting, VLANs, Trunking, DTP, VTP, Router-on-a-Stick | ✅ Complete |
-| 02 | [Enterprise Network Lab](https://github.com/s1ayersboxer/CCNA-Projects/tree/main/Enterprise%20Network%20Lab) | VLANs, 802.1Q Trunking, Inter-VLAN Routing, STP, Port Security, DHCP, DNS, RIP, OSPF, EIGRP | ✅ Complete |
+| 01 | [Simple Network Design](https://github.com/s1ayersboxer/CCNA-Projects/blob/main/Network%20Design/01/01%20-%20Simple%20Network%20Design.md) | Subnetting, VLANs, Trunking, DTP, VTP, Router-on-a-Stick | ✅ Complete |
+| 02 | [Enterprise Network Lab](https://github.com/s1ayersboxer/CCNA-Projects/blob/main/Network%20Design/02/02%20-%20Enterprise%20Network.md) | VLANs, 802.1Q Trunking, Inter-VLAN Routing, STP, Port Security, DHCP, DNS, RIP, OSPF, EIGRP | ✅ Complete |
 
 ---
 
